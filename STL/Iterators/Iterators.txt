@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<int> v={2,3,4,5};
+    vector<int> :: iterator it;
+    it=v.begin();
+    cout<<(*it)<<" "<<(*(it+1))<<endl;     //(it++) instead of (it+1)for other containers(Maps) 
+    for(it=v.begin(); it!=v.end();it++){
+        cout<<(*it)<<" ";
+    }
+
+}

@@ -1,0 +1,28 @@
+/**Difference of Maps & Un.Maps**
+1. Inbuilt implementation
+2. Time complexity
+3. Valid keys datatype
+
+
+1. Does not maintain key's order because of hashmap implementation.
+2. Red Black Tree is implemented in Maps which is why keys are compared before ordering is set.
+   But in Unordered Maps keys are randomly ordered because of hash functions.
+3. Through comparison Maps can have containers(pairs,vectors,sets etc.)
+   But unordered maps cannot have containers as keys because
+   Data Structures don't have inbuilt hash functions(Data types have)
+
+**Code**/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   unordered_map<string,int> m;
+   m["ab"]=1;
+   m["bc"]=2;
+   m.insert({"ca",3});      //All operations perform in O(1)
+   for(auto &ump: m){
+    cout<<ump.first<<" "<<ump.second<<endl;
+   }
+}

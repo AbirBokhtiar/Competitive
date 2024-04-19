@@ -1,0 +1,16 @@
+1. Contains duplicate elements but maintains sorted order.
+2. All operations are performed in O(logn) like multiset.
+
+**Code**
+
+int main()
+{
+   multiset<string> ms;
+   ms={"ab","bc","ca","de","ab"};
+   auto it= ms.find("gf");
+   if(it!=ms.end()){ms.erase(it);} //erase the one it is pointing
+   else{ms.erase("ab");}  //erase all the same value
+   for(auto value: ms){
+    cout<<value<<endl;
+   }
+}

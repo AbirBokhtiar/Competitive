@@ -1,0 +1,61 @@
+# The Monk is supposed to arrange the list in such a manner that the list is sorted 
+  in decreasing order of marks. And if two students have the same marks, 
+  they should be arranged in lexicographical manner.
+
+  Constraints:
+  1 <= N <= 10^5
+  1 <= | Length of the name | <= 100
+  1 <= Marks <= 100
+
+=>
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    map<int,multiset<string>> m;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        int marks;
+        string name;
+        cin>>name>>marks;
+        m[marks].insert(name);
+    }
+    auto currIt= --m.end();
+    while(true){
+        auto &students= currIt->second;
+        auto &marks= currIt->first;
+        for(auto &std: students){
+            cout<<std<<": "<<marks<<endl;
+        }
+        if(currIt==m.begin())break;
+        currIt--;
+    }
+}
+
+***Optimisation***
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    map<int,multiset<string>> m;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        int marks;
+        string name;
+        cin>>name>>marks;
+        m[-1*marks].insert(name);
+    }
+    for(auto &marksStudentsPair: m){
+        auto &students= marksStudentsPair.second;
+        auto &marks= marksStudentsPair.first;
+        for(auto std: students){
+            cout<<std<<" "<<-1*marks<<endl;
+        }
+    }
+}

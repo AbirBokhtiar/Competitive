@@ -1,0 +1,29 @@
+1. Sets are basically Maps only with keys. 
+2. Sets and Maps both contain unique element.
+3. All operation of set takes O(logn) just like map.
+
+**Code**
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void print(set<string>&s)
+{
+    for(auto value: s){
+        cout<<value<<endl;
+    }
+}
+
+int main()
+{
+   set<string> s;
+   s={"de","ef","gh"};
+   s.insert("ab");
+   s.insert("bc");
+   s.insert("ca");
+   auto it=s.find("ab");
+   if(it!=s.end()){s.erase(it);}
+   s.erase("ef");
+   print(s);
+
+}

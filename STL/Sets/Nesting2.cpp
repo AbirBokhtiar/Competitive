@@ -1,0 +1,32 @@
+/**If First name, Last name included**/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    map<pair<string,string>,vector<int>>m;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        int count;
+        string firstN,lastN;
+        cin>>firstN>>lastN>>count;
+        for(int j=0;j<count;j++){
+            int x;
+            cin>>x;
+            m[{firstN,lastN}].push_back(x);   //vector<int>
+        }
+
+    }
+    for(auto &value: m){
+        auto &fullName= value.first;
+        cout<<fullName.first<<" "<<fullName.second<<" ";
+        for(auto &vec: value.second){
+            cout<<vec<<" ";
+        }
+        cout<<endl;
+    }
+}
+

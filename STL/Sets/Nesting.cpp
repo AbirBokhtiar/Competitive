@@ -1,0 +1,29 @@
+/*# Print name and corresponding marks.*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    map<string,vector<int>>m;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        int count;
+        string name;
+        cin>>name>>count;
+        for(int j=0;j<count;j++){
+            int x;
+            cin>>x;
+            m[name].push_back(x);   //vector<int>
+        }
+
+    }
+     for(auto value: m){
+            cout<<value.first<<" ";
+            for(auto vec: value.second){
+                cout<<vec<<" ";
+            }
+            cout<<endl;
+        }
+}

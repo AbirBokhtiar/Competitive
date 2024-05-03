@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool cmp(pair<int,int>a, pair<int,int>b)
+{
+    if(a>b) return true;   //increasing
+    return false;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<pair<int,int>> v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i].first>>v[i].second;
+    }
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(cmp(v[i],v[j])){
+                swap(v[i],v[j]);
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<v[i].first<<" "<<v[i].second<<endl;
+    }
+}
+
+***Manual comparator***
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool cmp(pair<int,int>a, pair<int,int>b)
+{
+    if(a.first!=b.first){
+        if(a.first>b.first) return true;   //1st element increasing
+        return false;
+    }
+    else{
+        if(a.second<b.second)return true;  //if same 1st element then 2nd element decreasing
+        return false;
+    }
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<pair<int,int>> v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i].first>>v[i].second;
+    }
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(cmp(v[i],v[j])){
+                swap(v[i],v[j]);
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<v[i].first<<" "<<v[i].second<<endl;
+    }
+}
+

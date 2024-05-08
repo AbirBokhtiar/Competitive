@@ -1,0 +1,42 @@
+Alternate codes for lower_bound and upper_bound functions :
+// lower bound
+int lower_bound(vector<int>&v, int val)
+{
+	int l=0,h=v.size()-1;
+	int mid;
+	while(l<h)
+	{
+		mid=(l+h)/2;
+		if(v[mid]<val) l=mid+1;
+		else  h=mid;
+	}
+	
+	if(l<v.size()-1) return l;
+	else
+	{
+		if(val>v[l]) return -1;
+		else return l;
+	}
+	
+
+}
+
+// upper bound 
+int upper_bound(vector<int> &v, int val)
+{
+	int l=0,h=v.size()-1;
+	int mid;
+	while(l<h)
+	{
+		mid=(l+h)/2;
+		if(v[mid]<=val) l=mid+1;
+		else h=mid;
+	}
+
+	if(l<v.size()-1) return l;
+	else
+	{
+		if(val>=v[l]) return -1;
+		else return l;
+	}
+}

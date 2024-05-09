@@ -1,0 +1,60 @@
+(For Maps and Sets Upper/Lower bound returns iterator)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    set<int> s;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        s.insert(x);
+    }
+    auto it= lower_bound(s.begin(),s.end(),5);   //O(n)
+    cout<<(*it)<<endl;
+    auto it2= upper_bound(s.begin(),s.end(),5);  //O(n)
+    cout<<(*it2)<<endl;
+}
+
+***Time limit exceed problem solution***
+
+int main()
+{
+    int n;
+    cin>>n;
+    set<int> s;
+    for(int i=0;i<(int)(1e6);i++){
+        s.insert(rand());
+    }
+    for(int i=0;i<(int)(1e5);i++){
+        auto it= s.lower_bound(rand());    //O(logn)
+        //cout<<(*it)<<endl;
+    }
+}
+
+
+***For Maps*** 
+
+keys are considered for upper and lower bound..
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    map<int,int> mp;
+    for(int i=0;i<n;i++){
+        int x,y;
+        cin>>x>>y;
+        mp.insert({x,y});  //{5 4}{4 5}{6 7}{8 7}
+    }
+    auto it = mp.lower_bound(5);
+    cout<<it->first<<" "<<it->second<<endl;  //{5,4}
+    auto it2 = mp.upper_bound(5);
+    cout<<it2->first<<" "<<it2->second<<endl; //{6,7}
+}

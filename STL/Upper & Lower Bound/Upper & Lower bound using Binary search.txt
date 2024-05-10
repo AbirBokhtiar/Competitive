@@ -1,0 +1,33 @@
+int lowerBound(int arr[], int len, int element)
+{
+    int low=0, high= len-1;
+    int mid;
+    while(high-low > 1)
+    {
+        mid= (high+low)/2;
+        if(arr[mid]<element){low=mid+1;}
+        else{high=mid;}
+    }
+    if(arr[low]>=element){return low;}
+    if(arr[high]>=element){return high;}
+    return -1;
+}
+
+int upperBound(int arr[], int len, int element)
+{
+    int low=0, high= len-1;
+    int mid;
+    while(high-low > 1)
+    {
+        mid= (high+low)/2;
+        if(arr[mid]<=element){low=mid+1;}
+        else{high=mid;}
+    }
+    if(arr[low]>element){return low;}
+    if(arr[high]>element){return high;}
+    return -1;
+}
+lb=lowerBound(arr,element);
+up=upperBound(arr,element);
+cout<<lb<<" "<<(lb!-1 ? v[lb]: -1)<<endl;
+cout<<ub<<" "<<(ub!-1 ? v[ub]: -1)<<endl;

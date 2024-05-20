@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void printVec(vector<int>v)  //for original vector<int>&v
+{
+    cout<<"size: "<<v.size()<<endl;
+    for(int i=0;i<v.size();i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int main()
+{
+   vector<int> v;
+   int n;
+   cin>>n;
+   for(int i=0;i<n;i++)
+   {
+       printVec(v);
+       int x;
+       cin>>x;
+
+       v.push_back(x);
+   }
+   printVec(v);
+   return 0;
+}
+
+***For fixed size vector- vector<int> v(10);
+***For vector fill- vector<int> v(10,3);
+
+***For push/pop- v.push_back(4); v.pop_back(6);
+
+***For vector copy- 
+vector<int>v;
+v.push_back(7);
+v.push_back(6);
+vector<int> v2=v;
+v2.push_back(5);
+printVec(v);     //size:2 {7,6}
+printVec(v2);    //size:3 {7,6,5}
+
+***To save O(N) time we use actual vector not a copy of it
+vector<int>v;
+v.push_back(7);
+v.push_back(6);
+vector<int> &v2=v;     //v.push_back(2) in print func
+v2.push_back(5);
+printVec(v);     //size:2 {7,6}
+printVec(v);     //size3: {7,6,2}
+printVec(v2);    //size:3 {7,6,5}
+
+
+

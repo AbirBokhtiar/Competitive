@@ -1,0 +1,22 @@
+int main()
+{  
+   pair<int,string> p;  //initialize
+   cin>>p.first;    //input taking
+   cout<<p.first<<endl;
+   p={2,"abac"};    //p=make_pair(2,"abca")
+   cout<<p.first<<" "<<p.second<<endl;
+   pair<int,string> &p1=p;  //pass by ref
+   p1.first=4;
+   cout<<p1.first<<" "<<p1.second<<endl;
+
+   pair<int, int> a[3];  //using array
+   a[0]={1,2};
+   a[1]={2,3};
+   a[2]={3,4};
+   swap(a[0],a[2]);
+   for(int i=1;i<=3;i++)
+   {
+       cout<<a[i].first<<" "<<a[i].second<<endl;
+   }
+   return 0;
+}
